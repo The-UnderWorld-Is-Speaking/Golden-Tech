@@ -1,0 +1,619 @@
+/* ═══════════════════════════════════════════════════════
+   GTRX — Gold Theme for Spicetify
+   v3 — Screenshot fixes
+   ═══════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap');
+
+/* ══════════════════════════════════════════
+   1. ROOT VARIABLE OVERRIDES
+   ══════════════════════════════════════════ */
+:root {
+  --spice-main:              #0d0b00 !important;
+  --spice-sidebar:           #080600 !important;
+  --spice-player:            #0a0800 !important;
+  --spice-card:              #141100 !important;
+  --spice-shadow:            #000000 !important;
+  --spice-selected-row:      rgba(180,140,40,0.13) !important;
+  --spice-button:            #c9a84c !important;
+  --spice-button-active:     #e8c45a !important;
+  --spice-button-disabled:   #3a2f10 !important;
+  --spice-tab-active:        #c9a84c !important;
+  --spice-notification:      #c9a84c !important;
+  --spice-notification-error:#c0392b !important;
+  --spice-text:              #ece6c8 !important;
+  --spice-subtext:           #9a8a55 !important;
+  --spice-nav-active-color:  #c9a84c !important;
+
+  /* Encore system — kill all green */
+  --encore-base-set-100:     #c9a84c !important;
+  --encore-base-set-200:     #e8c45a !important;
+  --encore-base-set-300:     #a8861e !important;
+  --encore-colored-200:      #c9a84c !important;
+  --encore-colored-300:      #e8c45a !important;
+  --encore-essential-base:   #ece6c8 !important;
+  --encore-essential-subdued:#9a8a55 !important;
+  --encore-decorative-base:  #c9a84c !important;
+  --bg-base:                 #0d0b00 !important;
+
+  /* Encore background tokens */
+  --encore-background-base:          #0d0b00 !important;
+  --encore-background-highlight:     #1a1600 !important;
+  --encore-background-press:         #221c00 !important;
+  --encore-background-elevated-base: #141100 !important;
+  --encore-background-elevated-highlight: #1e1900 !important;
+  --encore-background-tinted-base:   #181300 !important;
+  --encore-background-tinted-highlight: #1e1900 !important;
+  --encore-background-tinted-press:  #241e00 !important;
+  --encore-background-unsafe-for-small-text-base: #0d0b00 !important;
+}
+
+/* ══════════════════════════════════════════
+   2. BODY & GLOBAL BACKGROUNDS
+   ══════════════════════════════════════════ */
+body,
+#main,
+.Root__top-container,
+.os-host,
+.os-padding {
+  background: #000000 !important;
+}
+
+.Root__main-view,
+.main-view-container,
+.main-view-container__scroll-node,
+.main-view-container__scroll-node-child,
+.contentSpacing,
+[class*="ZDupB"],
+[class*="contentArea"] {
+  background: linear-gradient(
+    180deg,
+    #181200 0%,
+    #0e0c00 28%,
+    #080600 55%,
+    #000000 100%
+  ) !important;
+}
+
+/* Kill the colored gradient Spotify sets from album art */
+.main-home-homeHeader,
+[class*="homeHeader"],
+.under-main-view {
+  background: transparent !important;
+}
+
+/* ══════════════════════════════════════════
+   3. SIDEBAR — LEFT
+   ══════════════════════════════════════════ */
+.Root__nav-bar,
+.nav-bar,
+aside[aria-label="Left sidebar"],
+[class*="LeftSidebar"],
+.main-yourLibraryX-library {
+  background: #070500 !important;
+  border-right: 1px solid rgba(160,120,30,0.1) !important;
+}
+
+/* Sidebar inner panels */
+.main-yourLibraryX-libraryRootlist,
+[class*="libraryRootlist"] {
+  background: transparent !important;
+}
+
+/* Active sidebar item */
+.main-yourLibraryX-navLink[aria-current="page"],
+.NavBarLink--active,
+[class*="navLink"][aria-current="page"],
+.main-rootlist-rootlistItem[aria-selected="true"] > div {
+  border-left: 2px solid rgba(200,160,50,0.55) !important;
+  padding-left: 10px !important;
+  background: rgba(200,160,50,0.05) !important;
+  transition: background 0.25s ease !important;
+}
+
+.main-yourLibraryX-navLink:hover,
+[class*="navLink"]:hover {
+  background: rgba(200,160,50,0.04) !important;
+}
+
+/* ══════════════════════════════════════════
+   4. TOP BAR
+   ══════════════════════════════════════════ */
+.Root__top-bar,
+header[aria-label="Top bar"],
+.main-topBar-container,
+[class*="topBar"] {
+  background: rgba(10,8,1,0.96) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(160,120,30,0.12) !important;
+  box-shadow: 0 1px 0 rgba(160,120,30,0.08) !important;
+}
+
+/* Search bar container */
+.x-searchInput-searchInputIconContainer,
+[class*="SearchInput"],
+[class*="searchBar"],
+.main-topBar-searchbar {
+  background: rgba(20,16,3,0.8) !important;
+  border: 1px solid rgba(140,105,28,0.25) !important;
+  border-radius: 6px !important;
+  max-width: 340px !important;
+  transition: border 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.main-topBar-searchbar:focus-within,
+[class*="searchBar"]:focus-within {
+  border-color: rgba(200,160,50,0.4) !important;
+  box-shadow: 0 0 0 2px rgba(180,140,40,0.08) !important;
+}
+
+/* Search input text */
+.x-searchInput-searchInputInput,
+input[data-testid="search-input"],
+[class*="searchInput"] input {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 6px !important;
+  color: #d0c07a !important;
+  caret-color: #c9a84c !important;
+}
+
+.x-searchInput-searchInputInput::placeholder,
+input[data-testid="search-input"]::placeholder {
+  color: #6a5c30 !important;
+}
+
+/* Search icon color */
+.x-searchInput-searchInputIcon,
+[class*="searchIcon"] {
+  color: #7a6a38 !important;
+}
+
+/* ══════════════════════════════════════════
+   5. NOW PLAYING BAR
+   ══════════════════════════════════════════ */
+.Root__now-playing-bar,
+footer[class*="now-playing"],
+[class*="NowPlayingBar"],
+[data-testid="now-playing-bar"] {
+  background: #08070000 !important;
+  background-color: #080600 !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-top: 1px solid rgba(160,120,30,0.14) !important;
+  box-shadow: 0 -1px 0 rgba(160,120,30,0.06) !important;
+}
+
+/* Track title in player bar — gold */
+.main-nowPlayingWidget-nowPlaying .main-trackInfo-name,
+[data-testid="now-playing-widget"] .main-trackInfo-name,
+[class*="trackName"] {
+  color: #e0c060 !important;
+  text-shadow: 0 0 10px rgba(200,160,40,0.25) !important;
+}
+
+/* Artist name in player bar */
+.main-nowPlayingWidget-nowPlaying .main-trackInfo-artists a,
+[data-testid="now-playing-widget"] .main-trackInfo-artists a {
+  color: #9a8a55 !important;
+}
+
+/* ══════════════════════════════════════════
+   6. RIGHT SIDEBAR
+   ══════════════════════════════════════════ */
+.Root__right-sidebar,
+aside[aria-label="Now playing view"],
+[class*="RightSidebar"] {
+  background: #070500 !important;
+  border-left: 1px solid rgba(160,120,30,0.1) !important;
+}
+
+/* Credits and queue inner panels */
+.main-nowPlayingView-section,
+[class*="nowPlayingView"] section,
+[class*="QueuePanel"],
+[class*="creditsSection"] {
+  background: rgba(18,14,2,0.7) !important;
+  border: 1px solid rgba(150,115,28,0.12) !important;
+  border-radius: 8px !important;
+}
+
+/* ══════════════════════════════════════════
+   7. CARDS
+   ══════════════════════════════════════════ */
+.main-card-card {
+  background: #111000 !important;
+  border: 1px solid rgba(150,115,28,0.13) !important;
+  border-radius: 8px !important;
+  transition:
+    border-color 0.28s ease,
+    box-shadow   0.28s ease,
+    transform    0.28s ease !important;
+}
+
+.main-card-card:hover {
+  border-color: rgba(200,160,50,0.28) !important;
+  box-shadow: 0 4px 20px rgba(160,120,30,0.14) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* The tan/yellow squares — kill play button AND its container entirely */
+.main-card-card .main-playButton-PlayButton,
+.main-card-card [data-testid="play-button"],
+.main-card-card .main-card-PlayButtonContainer,
+.main-card-card [class*="PlayButtonContainer"],
+.main-card-card [class*="playButton"],
+.main-card-card button[class*="play"] {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Card image container */
+.main-cardImage-image,
+.main-card-card img {
+  border-radius: 4px !important;
+}
+
+/* ══════════════════════════════════════════
+   8. QUICK-ACCESS TILES (Recent section top)
+   Those tan boxes at the very top of home
+   ══════════════════════════════════════════ */
+.main-card-card.main-card-cardMetadata,
+[class*="recentlyPlayed"] .main-card-card,
+[class*="quickLinks"] .main-card-card,
+.collection-collectionEntityHero-container {
+  background: rgba(22,17,2,0.9) !important;
+}
+
+/* Kill the tan/gold filled squares that appear on recent cards */
+[class*="recentlyPlayed"] [class*="PlayButtonContainer"],
+[class*="quickLinks"] [class*="PlayButtonContainer"],
+.main-home-shortcutCard [class*="PlayButtonContainer"],
+[data-testid="shortcut"] [class*="PlayButtonContainer"] {
+  display: none !important;
+}
+
+/* Home shortcut cards (the pill-shaped recent items) */
+[data-testid="shortcut"],
+.main-home-shortcutsSection [class*="card"],
+[class*="shortcutCard"] {
+  background: rgba(22,17,2,0.85) !important;
+  border: 1px solid rgba(150,115,28,0.12) !important;
+  border-radius: 4px !important;
+  transition: background 0.25s ease, border-color 0.25s ease !important;
+}
+
+[data-testid="shortcut"]:hover,
+[class*="shortcutCard"]:hover {
+  background: rgba(30,24,3,0.9) !important;
+  border-color: rgba(190,150,40,0.22) !important;
+}
+
+/* ══════════════════════════════════════════
+   9. CONTENT SECTION PANELS
+   Subtle gold outline on home sections
+   ══════════════════════════════════════════ */
+.main-shelf-shelf,
+[class*="homeSection"],
+[class*="shelf"] {
+  border: 1px solid rgba(140,108,25,0.08) !important;
+  border-radius: 10px !important;
+  padding: 6px !important;
+  transition: border-color 0.3s ease !important;
+}
+
+.main-shelf-shelf:hover,
+[class*="homeSection"]:hover {
+  border-color: rgba(180,140,40,0.14) !important;
+}
+
+/* ══════════════════════════════════════════
+   10. TRACK LIST
+   ══════════════════════════════════════════ */
+.main-trackList-trackListRow[aria-selected="true"],
+.main-trackList-trackListRow--active {
+  background: rgba(180,140,30,0.07) !important;
+  border-left: 2px solid rgba(200,160,50,0.45) !important;
+  border-radius: 0 4px 4px 0 !important;
+}
+
+.main-trackList-trackListRow:hover {
+  background: rgba(180,140,30,0.05) !important;
+  transition: background 0.2s ease !important;
+}
+
+.main-trackList-playingIcon,
+.main-trackList-trackListRow--active .main-trackList-number {
+  color: #c9a84c !important;
+  filter: drop-shadow(0 0 4px rgba(180,140,40,0.4)) !important;
+}
+
+/* ══════════════════════════════════════════
+   11. BUTTONS
+   ══════════════════════════════════════════ */
+
+/* Primary filled buttons */
+.Button-sc-y0gtbx-0,
+button[class*="encore-text-body-medium-bold"],
+.main-playButton-PlayButton,
+.control-button--circled {
+  background: linear-gradient(
+    150deg,
+    #debb55 0%,
+    #c9a84c 50%,
+    #a8861e 100%
+  ) !important;
+  color: #0a0800 !important;
+  border: none !important;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.45) !important;
+  transition: filter 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.Button-sc-y0gtbx-0:hover,
+.main-playButton-PlayButton:hover,
+.control-button--circled:hover {
+  filter: brightness(1.1) !important;
+  box-shadow: 0 0 12px rgba(180,140,40,0.3) !important;
+}
+
+/* Icon-only control buttons (shuffle, skip, etc.) */
+.main-shuffleButton-button,
+.main-skipForwardButton-button,
+.main-skipBackButton-button,
+.main-repeatButton-button,
+.main-addButton-button,
+.control-button {
+  background: transparent !important;
+  color: #8a7a45 !important;
+  transition: color 0.2s ease, filter 0.2s ease !important;
+}
+
+.main-shuffleButton-button:hover,
+.main-skipForwardButton-button:hover,
+.main-skipBackButton-button:hover,
+.main-repeatButton-button:hover,
+.control-button:hover {
+  color: #e0c060 !important;
+  filter: drop-shadow(0 0 5px rgba(200,160,40,0.38)) !important;
+}
+
+.main-shuffleButton-button[aria-checked="true"],
+.main-repeatButton-button[aria-checked="true"] {
+  color: #c9a84c !important;
+}
+
+/* Follow / unfollow pill buttons */
+[class*="FollowButton"],
+[data-testid="follow-button"] {
+  background: transparent !important;
+  border: 1px solid rgba(180,140,40,0.4) !important;
+  color: #d4c070 !important;
+  border-radius: 20px !important;
+  transition: border-color 0.2s ease, color 0.2s ease !important;
+}
+
+[class*="FollowButton"]:hover,
+[data-testid="follow-button"]:hover {
+  border-color: rgba(220,175,50,0.7) !important;
+  color: #e8c45a !important;
+}
+
+/* ══════════════════════════════════════════
+   12. PROGRESS BARS
+   ══════════════════════════════════════════ */
+.playback-progressbar .progress-bar__bg,
+.x-progressBar-bgBar,
+[class*="progressBar"] [class*="background"] {
+  background: rgba(160,120,35,0.18) !important;
+}
+
+.playback-progressbar .progress-bar__fg,
+.x-progressBar-fillActive,
+[class*="progressBar"] [class*="fill"] {
+  background: linear-gradient(
+    to right,
+    #9a7a1a 0%,
+    #c9a84c 55%,
+    #e0c060 100%
+  ) !important;
+}
+
+.progress-bar__slider,
+.x-progressBar-sliderHandle {
+  background: #e8c45a !important;
+  box-shadow: 0 0 6px rgba(200,160,40,0.55) !important;
+}
+
+.volume-bar .progress-bar__fg,
+.volume-bar .x-progressBar-fillActive {
+  background: #b89840 !important;
+}
+
+/* ══════════════════════════════════════════
+   13. ALBUM ART GLOW
+   ══════════════════════════════════════════ */
+.main-coverSlot-image,
+.Root__now-playing-bar .cover-art img,
+[data-testid="cover-art-image"] {
+  border-radius: 10px !important;
+  animation: goldPulse 4.5s ease-in-out infinite !important;
+}
+
+@keyframes goldPulse {
+  0%   { box-shadow: 0 0 10px 2px rgba(180,140,40,0.20), 0 0 30px 6px  rgba(180,140,40,0.07); }
+  50%  { box-shadow: 0 0 20px 5px rgba(180,140,40,0.38), 0 0 50px 14px rgba(180,140,40,0.14); }
+  100% { box-shadow: 0 0 10px 2px rgba(180,140,40,0.20), 0 0 30px 6px  rgba(180,140,40,0.07); }
+}
+
+/* ══════════════════════════════════════════
+   14. PLAYLIST / ALBUM ENTITY HEADER
+   ══════════════════════════════════════════ */
+.main-entityHeader-background,
+[class*="entityHeaderBackground"] {
+  filter: brightness(0.6) saturate(0.65) !important;
+}
+
+.main-entityHeader-overlay,
+.main-entityHeader-backgroundColor,
+[class*="entityHeaderOverlay"] {
+  background: linear-gradient(
+    180deg,
+    rgba(24,18,3,0.55) 0%,
+    rgba(10,8,0,0.88) 55%,
+    #0a0800 100%
+  ) !important;
+}
+
+/* ══════════════════════════════════════════
+   15. TYPOGRAPHY — Cinzel headings
+   ══════════════════════════════════════════ */
+.main-entityTitle-titleText,
+.main-type-alto,
+.main-type-ballad,
+.main-type-canon,
+h1, h2 {
+  font-family: 'Cinzel', serif !important;
+  letter-spacing: 0.04em !important;
+  color: #ddc868 !important;
+}
+
+h3,
+.main-shelf-header,
+[class*="sectionTitle"],
+[class*="SectionTitle"] {
+  font-family: 'Cinzel', serif !important;
+  letter-spacing: 0.03em !important;
+  color: #b09038 !important;
+}
+
+/* ══════════════════════════════════════════
+   16. SCROLLBAR
+   ══════════════════════════════════════════ */
+::-webkit-scrollbar        { width: 3px !important; height: 3px !important; }
+::-webkit-scrollbar-track  { background: transparent !important; }
+::-webkit-scrollbar-thumb  { background: rgba(170,130,38,0.28) !important; border-radius: 3px !important; }
+::-webkit-scrollbar-thumb:hover { background: rgba(200,158,48,0.5) !important; }
+
+/* ══════════════════════════════════════════
+   17. CONTEXT MENUS
+   ══════════════════════════════════════════ */
+.main-contextMenu-menu,
+[class*="ContextMenu"],
+[class*="contextMenu"] {
+  background: #0e0c01 !important;
+  border: 1px solid rgba(170,130,35,0.2) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 10px 36px rgba(0,0,0,0.75) !important;
+}
+
+.main-contextMenu-menuItem:hover,
+[class*="contextMenu"] [role="menuitem"]:hover {
+  background: rgba(180,140,40,0.1) !important;
+  color: #e0c060 !important;
+}
+
+/* ══════════════════════════════════════════
+   18. TOOLTIPS
+   ══════════════════════════════════════════ */
+[class*="Tooltip"],
+.encore-popover-container {
+  background: #181400 !important;
+  border: 1px solid rgba(170,130,35,0.22) !important;
+  color: #ccc070 !important;
+  border-radius: 4px !important;
+  font-size: 12px !important;
+}
+
+/* ══════════════════════════════════════════
+   19. MODALS & DIALOGS
+   ══════════════════════════════════════════ */
+[class*="Dialog"],
+[class*="Modal"],
+.main-dialog-container,
+[role="dialog"] {
+  background: #0e0c01 !important;
+  border: 1px solid rgba(170,130,35,0.2) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.85) !important;
+}
+
+/* ══════════════════════════════════════════
+   20. LIKED / HEART
+   ══════════════════════════════════════════ */
+.main-addButton-button[aria-checked="true"],
+[data-testid="heart-button"][aria-checked="true"] {
+  color: #c9a84c !important;
+  filter: drop-shadow(0 0 4px rgba(180,140,40,0.5)) !important;
+}
+
+/* ══════════════════════════════════════════
+   21. LIBRARY LIST HOVER
+   ══════════════════════════════════════════ */
+.main-yourLibraryX-listItem,
+.main-trackList-trackListRow,
+.main-card-card {
+  transition:
+    background    0.22s ease,
+    box-shadow    0.22s ease,
+    border-color  0.22s ease,
+    transform     0.22s ease !important;
+}
+
+.main-yourLibraryX-listItem:hover {
+  background: rgba(170,130,30,0.06) !important;
+  box-shadow: inset 0 0 0 1px rgba(170,130,30,0.1) !important;
+}
+
+/* ══════════════════════════════════════════
+   22. KILL ALL REMAINING GREEN
+   ══════════════════════════════════════════ */
+
+/* Green play button on ANY card/row — nuclear option */
+[class*="encore-colorSet-brightAccent"],
+[class*="brightAccent"],
+.encore-colorSet-brightAccent {
+  background-color: #c9a84c !important;
+  color: #0a0800 !important;
+}
+
+/* Green dot indicators */
+.main-avatar-indicator,
+[class*="onlineIndicator"],
+[class*="GreenDot"],
+[class*="indicator--green"],
+[class*="greenDot"] {
+  background: #c9a84c !important;
+  box-shadow: 0 0 5px rgba(180,140,40,0.5) !important;
+}
+
+/* Verified badge */
+[class*="verified"] svg,
+[class*="Verified"] svg {
+  color: #c9a84c !important;
+  fill: #c9a84c !important;
+}
+
+/* Podcast progress */
+[class*="episodeProgress"] [class*="fill"],
+[class*="podcastProgress"] [class*="fill"] {
+  background: #c9a84c !important;
+}
+
+/* Spotify Connect active */
+[class*="ConnectButton--active"],
+[class*="devicePickerButton--active"] {
+  color: #c9a84c !important;
+}
+
+/* SVG icons that are still green */
+svg[style*="color: var(--encore-colorSet-brightAccent"],
+[style*="color: rgb(30, 215, 96)"],
+[style*="color:#1ed760"],
+[style*="fill:#1ed760"],
+[style*="fill: #1ed760"],
+[style*="fill: rgb(30, 215, 96)"] {
+  color: #c9a84c !important;
+  fill: #c9a84c !important;
+}
