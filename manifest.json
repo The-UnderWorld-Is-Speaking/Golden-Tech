@@ -1,0 +1,12 @@
+{
+    "name": "Golden Tech",
+    "description": "A subtle gold theme with old fashion styled header fonts for Spicetify.",
+    "preview": "preview.png",
+    "readme": "README.md",
+    "usercss": "user.css",
+    "schemes": "color.ini",
+    "authors": [
+        { "name": "The-UnderWorld-Is-Speaking", "url": "https://github.com/The-UnderWorld-Is-Speaking" }
+    ],
+    "tags": ["dark", "gold", "elegant"]
+}
